@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --perspective: 850px;
+  --present-dimension: 12em;
+  --date-dimension: --present-dimension / 5;
+  --bauble-dimension: --present-dimension / 4.5;
+}
+@keyframes shake {
+  0% 		{ transform: rotate(0deg); }
+  20% 	{ transform: rotate(-20deg); }
+  40% 	{ transform: rotate(20deg); }
+  60% 	{ transform: rotate(-10deg); }
+  80% 	{ transform: rotate(10deg); }
+  100% 	{ transform: rotate(0deg); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html, body {
+  height: 100%;
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: MediumSeaGreen;
+  display: flex;
+  align-items: center;
 }
