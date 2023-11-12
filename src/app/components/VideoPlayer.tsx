@@ -6,7 +6,6 @@ type VideoPlayer = {
 }
 
 const VideoPlayer = ({ url }: VideoPlayer) => {
-    console.log(url);
 
     return (
         <ReactPlayer

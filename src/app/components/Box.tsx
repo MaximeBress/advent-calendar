@@ -5,16 +5,22 @@ type BoxProps = BoxItem & {
   onClick: () => void;
 }
 
-const Box = ({ index, firstname, image, onClick }: BoxProps) => {
+const Box = ({ index, firstname, illustration, onClick }: BoxProps) => {
   return (
-    <div onClick={onClick} className="cursor-pointer">
-      <div className="">
-        <h2 className="">{index + 1}</h2>
-      </div>
-      <div className="">
-        <Image src={image} alt={firstname} width={100} height={100} />
-        <p className="">{firstname}</p>
-      </div>
+    <div className={`day day-${index + 1}`}>
+        <label>
+            <input type="checkbox"/>
+            <div className="door">
+                <div className="front">{index + 1}</div>
+                <div className="back"></div>
+            </div>
+            <div className="inside bg-white">
+                <Image src={illustration} alt={firstname} width={200} height={200} />
+            </div>
+            <button className="title-container" onClick={onClick}>
+                <span>Découvrir</span>
+            </button>
+        </label>
     </div>
   )
 }
