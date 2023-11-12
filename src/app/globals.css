@@ -1,23 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+@import url("https://csschristmascalendar.com/assets/freeserif/font.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --perspective: 850px;
-  --present-dimension: 12em;
-  --date-dimension: --present-dimension / 5;
-  --bauble-dimension: --present-dimension / 4.5;
-}
-@keyframes shake {
-  0% 		{ transform: rotate(0deg); }
-  20% 	{ transform: rotate(-20deg); }
-  40% 	{ transform: rotate(20deg); }
-  60% 	{ transform: rotate(-10deg); }
-  80% 	{ transform: rotate(10deg); }
-  100% 	{ transform: rotate(0deg); }
-}
-
 body {
+  background: url(https://i.imgur.com/FnJbmo1.jpg) no-repeat top center #8ac1d6;
+  background-size: cover;
+  font-family: "Mountains of Christmas", cursive;
   display: flex;
   flex-direction: column;
 }
@@ -29,19 +21,19 @@ body {
   max-width: 900px;
   margin: 3% auto 2rem auto;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-gap: 1rem;
 
   transform: translate3d(0px, 0px, 0px);
 
   grid-template-areas:
-    "title  title"
-    "day2   day4"
-    "day9   day1"
-    "day7   day3"
-    "day8   day6"
-    "day5   day10";
+    "title  title title"
+    "day2   day4  day11"
+    "day9   day8  day11"
+    "day6   day1  day3"
+    "day10  day1  day7"
+    "day10  day5  day5";
 }
 
 /* media query */
@@ -49,16 +41,27 @@ body {
   .calendar-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "title  title title day8"
-      "title  title title day1"
+      "title  title day8 day1"
+      "title  title day11 day3"
       "day6   day2  day4  day10"
-      "day5   day9  day7  day3";
+      "day5   day9  day7  day7";
   }
 }
 
 /* title */
 .calendar-grid .title {
   grid-area: title;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.calendar-grid .title h1 {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
 }
 
 @media only screen and (min-width: 576px) {
@@ -84,7 +87,6 @@ body {
   display: flex;
   min-height: 100%;
   width: 100%;
-  max-width:200px;
   height: calc(85vw / 3);
   position: relative;
 }
@@ -156,7 +158,7 @@ body {
   pointer-events: all;
 }
 
-.calendar-grid .title-container span {
+.calendar-grid .title-container button {
   position: relative;
   display: inline-block;
   border-radius: 0.25rem;
@@ -168,7 +170,7 @@ body {
   text-decoration: none;
 }
 
-.calendar-grid .title-container span::before {
+.calendar-grid .title-container button::before {
   content: "";
   display: block;
   border-radius: 0.75rem;
@@ -193,7 +195,7 @@ body {
   animation-play-state: paused;
 }
 
-.calendar-grid .title-container span:hover::before {
+.calendar-grid .title-container button:hover::before {
   -webkit-animation-play-state: running;
   animation-play-state: running;
 }
@@ -308,43 +310,47 @@ footer a {
 /* Calendar day positions and z-indexes */
 .calendar-grid .day-1 {
   grid-area: day1;
-  z-index: 1;
+  z-index: 4;
 }
 .calendar-grid .day-2 {
   grid-area: day2;
-  z-index: 16;
+  z-index: 9;
 }
 .calendar-grid .day-3 {
   grid-area: day3;
-  z-index: 23;
+  z-index: 6;
 }
 .calendar-grid .day-4 {
   grid-area: day4;
-  z-index: 3;
+  z-index: 10;
 }
 .calendar-grid .day-5 {
   grid-area: day5;
-  z-index: 7;
+  z-index: 1;
 }
 .calendar-grid .day-6 {
   grid-area: day6;
-  z-index: 6;
+  z-index: 3;
 }
 .calendar-grid .day-7 {
   grid-area: day7;
-  z-index: 12;
+  z-index: 5;
 }
 .calendar-grid .day-8 {
   grid-area: day8;
-  z-index: 1;
+  z-index: 8;
 }
 .calendar-grid .day-9 {
   grid-area: day9;
-  z-index: 19;
+  z-index: 7;
 }
 .calendar-grid .day-10 {
   grid-area: day10;
-  z-index: 4;
+  z-index: 0;
+}
+.calendar-grid .day-11 {
+  grid-area: day11;
+  z-index: 11;
 }
 
 @media only screen and (min-width: 576px) {
@@ -378,30 +384,8 @@ footer a {
   .calendar-grid .day-10 {
     z-index: 8;
   }
-}
-
-@media only screen and (max-width: 575px) {
-  .calendar-grid .day-2 .title-container,
-  .calendar-grid .day-5 .title-container,
-  .calendar-grid .day-9 .title-container,
-  .calendar-grid .day-12 .title-container,
-  .calendar-grid .day-15 .title-container,
-  .calendar-grid .day-16 .title-container,
-  .calendar-grid .day-20 .title-container,
-  .calendar-grid .day-22 .title-container {
-    left: 0;
-    right: auto;
-  }
-
-  .calendar-grid .day-4 .title-container,
-  .calendar-grid .day-6 .title-container,
-  .calendar-grid .day-7 .title-container,
-  .calendar-grid .day-8 .title-container,
-  .calendar-grid .day-11 .title-container,
-  .calendar-grid .day-13 .title-container,
-  .calendar-grid .day-17 .title-container,
-  .calendar-grid .day-19 .title-container {
-    left: auto;
-    right: 0;
+  .calendar-grid .day-11 {
+    z-index: 11;
   }
 }
+
