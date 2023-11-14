@@ -38,8 +38,8 @@ const Box = ({ index, firstname, image, illustration, onRightAnswer, onWrongAnsw
         <label>
             <input type="checkbox"/>
             <div className="door">
-                <div className="front bg-white">
-                    <Image src={illustration} alt={firstname} width={200} height={200} />
+                <div className="w-full relative overflow-hidden">
+                    <Image src={illustration} alt={firstname} width={200} height={200} className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"  />
                 </div>
                 <div className="back"></div>
             </div>
