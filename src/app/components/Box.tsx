@@ -48,7 +48,7 @@ const Box = ({ index, firstname, image, illustration, onRightAnswer, onWrongAnsw
                     <Image src={image} alt={firstname} width={250} height={250} className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2" />
                 </div>
             </div>
-            <form method="post" onSubmit={handleSubmit} className="title-container flex flex-col gap-4 absolute left-1/2 -translate-x-1/2">
+            <form method="post" onSubmit={handleSubmit} className="title-container flex flex-col gap-4  left-1/2 -translate-x-1/2">
                 <select name={`friends`}>
                     {options.map((option, index) => {
                         return <option key={index} value={option}>{option}</option>

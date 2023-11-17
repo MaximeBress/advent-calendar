@@ -11,6 +11,7 @@ const Modal: React.FC<PropsWithChildren<ModalProps>> = ({ open, onCloseModal, ch
     return (
         <ModalComponent
             open={open}
+            showCloseIcon={false}
             onClose={onCloseModal}
             classNames={{
                 overlay: 'customOverlay',

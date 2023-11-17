@@ -126,22 +126,18 @@ body {
 
 .calendar-grid .title-container {
   opacity: 0;
-  transform: translateY(-1rem);
   pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   z-index: 1000;
-  bottom: -3.7rem;
-  left: -10rem;
-  right: -10rem;
   transition: all 400ms ease-in-out;
+  bottom: -55px
 }
 
 .calendar-grid :checked ~ .title-container {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: all;
 }
 
@@ -378,4 +374,20 @@ footer a {
 
 .customModal {
   padding: 0 !important;
+  margin: 0 !important;
+  animation: unset !important;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent !important;
+}
+.customModal > div {
+  width: 100% !important;
+  height: 70vh!important;
+}
+
+@media only screen and (max-width: 576px) {
+  .title > img {
+    width: 250px
+  }
+
 }

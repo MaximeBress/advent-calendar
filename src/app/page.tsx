@@ -86,7 +86,10 @@ export default function Home() {
       <div className="calendar-grid">
         <div className="title">
           <Image src="/img/title.png" alt="title" width={400} height={250} />
-          <h2 className="text-xl">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          <h2 className="text-lg md:text-xl">On aurait aimé trouver 30 raisons pour lesquelles on t'aime mais on en a trouvé que 11 ...</h2>
+          <h2 className="text-2xl md:text-3xl my-3">Joyeux 30 ans Manon !</h2>
+          <h2 className="text-lg md:text-xl">
             Derrière chaque case se cache un ami ! Ouvre et découvre un indice pour voir qui se cache derrière 😉
           </h2>
         </div>
@@ -116,9 +119,7 @@ export default function Home() {
               open={wrongModalOpened}
               onCloseModal={() => setWrongModalOpened(false)}
           >
-            <div className="">
-              <Image src="/img/picture/c-est-non.gif" alt="c'est non" width={350} height={250} className=""/>
-            </div>
+            <Image src="/img/picture/c-est-non.gif" alt="c'est non" width={350} height={250} className=""/>
           </Modal>
       }
     </>
